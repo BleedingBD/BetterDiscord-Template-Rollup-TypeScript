@@ -1,0 +1,7 @@
+.some-class {
+  background-color: red;
+
+  &:hover {
+    background-color: blue;
+  }
+}

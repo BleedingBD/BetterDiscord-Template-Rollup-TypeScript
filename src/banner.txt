@@ -1,0 +1,16 @@
+@name <%= pkg.displayName %>
+@version <%= pkg.version %>
+@description <%= pkg.description %>
+@license <%= pkg.license %>
+@author <% if(typeof pkg.author == "string"){ %><%= pkg.author %><% }else{ %><%= pkg.author.name %><% } %>
+<% if(pkg.updateUrl){ %>@updateUrl <%= pkg.updateUrl %><% } %>
+<% if(dependencies.length){ %>
+@dependencies :
+
+<% _.forEach(dependencies, function (dependency) { %>
+<%= dependency.name %> -- <%= dependency.version %>
+License: <%= dependency.license %>
+Author: <% if(typeof dependency.author == "string"){ %><%= dependency.author %><% }else{ %><%= dependency.author.name %><% } %>
+<% if(dependency.homepage){ %>Homepage: <%= dependency.homepage %><% } %>
+<% }) %>
+<% } %>
